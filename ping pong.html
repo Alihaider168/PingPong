@@ -1,12 +1,326 @@
 <HTML>
 <head>
 	<meta charset="utf-8">
+<style>
+.jumbotron {
+  background-color: transparent;
+}
+
+#app {
+  min-width: 247px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background-color: #ffffff;
+  margin: 0%;
+}
+
+header {
+  background-color: #4385ef;
+  padding: 10px 90px 15px 90px;
+  border-radius: 15px;
+  color: #2c4b7c;
+  width: 613px;
+  margin: 0 auto;
+  margin-top: -20px;
+  margin-bottom: 2em;
+  box-shadow: inset 0px -5px 1px #234d8e, 6px 7px 3px rgba(66, 66, 66, 0.5);
+  
+}
+
+.scorecontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40em;
+  width: 80%;
+  margin-left: 0%;
+  margin-top: 0%;
+  background-color: #4385ef;
+  padding: 10px 90px 15px 90px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: -10;
+  box-shadow: inset 0px -5px 1px #234d8e, 6px 7px 3px rgba(66, 66, 66, 0.5);
+}
+
+.btn {
+  width: 300px;
+  margin-top: 0px;
+  cursor: default;
+  height: 300px;
+  border: 0;
+  border-radius: 20px;
+  outline: none !important;
+  font-size: 200px;
+  font-family: rubik;
+  text-shadow: 3px 3px 5px;
+  display: block;
+  position: relative;
+  z-index: 5;
+  top: 15px;
+}
+
+#team1 {
+  background-color: #e85c5c;
+  box-shadow: inset 0 -5px 1px #842f2f, 6px 7px 3px rgba(66, 66, 66, 0.5);
+}
+
+#team2 {
+  background-color: #60e85c;
+  box-shadow: inset 0 -5px 1px #37842f, 6px 7px 3px rgba(66, 66, 66, 0.5);
+}
+
+.btncontainer {
+  display: inline-block;
+  margin: 0 45px 285px 45px;
+  text-align: center;
+
+}
+
+.scorebtn {
+  background-color: #5e5e5e;
+  color: #ddd;
+  display: inline-block;
+  padding-top: 10px;
+  font-size: 45px;
+  border-radius: 10px;
+  box-shadow: inset 0 -4px 1px #383838, 4px 4px 3px rgba(66, 66, 66, 0.5);
+  border: 0;
+  top: -10px;
+  margin: 0px 10px 0px 10px;
+  width: 80px;
+  height: 80px;
+  transition: 0.5s;
+  
+}
+
+#rounddisplay {
+  background-color: #383838;
+  text-align: center;
+  border-radius: 10px;
+  width: 70px;
+  padding: 15px 10px 10px 10px;
+  
+}
+
+#roundcounter {
+  border-radius: 5px;
+  margin-bottom: 35px;
+}
+
+#roundplus,
+#roundminus {
+  background-color: #383838;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 30px;
+  height: 50px;
+  color: #ddd;
+  width: 100%;
+  border: none;
+  transition: 0.5s;
+  
+}
+
+#roundplus {
+  margin-bottom: -20px;
+  width: 70px;
+  border-bottom-left-radius: 0;
+  border-bottom: 10px #383838 solid;
+  border-bottom-right-radius: 0;
+}
+
+#roundminus {
+  margin-top: -15px;
+  width: 70px;
+  box-shadow: inset 0px -4px 1px #232323;
+  
+}
+
+@media (max-width: 1030px) {
+  .btn {
+    width: 250px;
+    height: 250px;
+    font-size: 170px;
+  }
+  #roundcounter {
+    width: 60px;
+  }
+  .btncontainer {
+    margin: 0 30px -30px 30px;
+    height: 480px;
+  }
+  .scorecontainer {
+    height: 470px;
+  }
+}
+
+@media (max-width: 850px) {
+  .btn {
+    width: 230px;
+    height: 230px;
+    font-size: 150px;
+  }
+  .btncontainer {
+    display: block;
+    margin-bottom: -20px;
+    margin-left: 20px;
+    margin-right: 15px;
+  }
+  .scorecontainer {
+    width: 90%;
+    margin-left: 5%;
+    height: 470px;
+  }
+}
+
+@media (max-width:655px) {
+  .btn {
+    height: 210px;
+    width: 210px;
+    font-size: 140px;
+  }
+  header {
+    width: 80%;
+  }
+  .btncontainer {
+    height: 400px;
+    margin-top: 10px;
+  }
+  .scorecontainer {
+    height: auto;
+  }
+}
+
+@media (max-width:585px) {
+  header {
+    width: 90%;
+    margin-top: 6px;
+    padding: 1px 0 10px 0px;
+    margin-bottom: 15px;
+   
+  }
+  .scorecontainer {
+    flex-direction: column;
+    align-items: right;
+    height: auto;
+  }
+  .btn {
+    width: 300px;
+  }
+  .btncontainer {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    height: 440px;
+  }
+  #roundcounter {
+    display: flex;
+    border-radius: 0;
+    width: 303px !important;
+    margin: 0;
+  }
+  #roundplus,
+  #roundminus {
+    margin: 0;
+    height: 80px;
+    border-radius: 0;
+    box-shadow: none;
+    transition: 0s;
+    width: 1000px !important;
+  }
+  #roundplus {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 0;
+  }
+  #roundminus {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  #rounddisplay {
+    height: 80px;
+    padding: 5px;
+    margin: 0;
+    border-radius: 0;
+    
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    min-width: 276px;
+    margin-left: 18px;
+  }
+  .scorecontainer {
+    padding: 20px;
+    min-width: 276px;
+  }
+  .btncontainer {
+    width: 99%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  .btn {
+    width: 240px;
+    height: 220px;
+    margin: 0 auto;
+    font-size: 120px;
+  }
+  #roundcounter {
+    width: 90% !important;
+  }
+}
+
+@media (max-width: 320px) {
+  header {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 6px;
+   
+  }
+  .scorecontainer {
+    margin: 0;
+    width: 100%;
+  }
+  .btn {
+    width: 200px;
+    height: 200px;
+  }
+}
+</style>
 </head>
 
-<body style="border: 50px solid green;">
-	<div style="background-color: hsl(182, 60%, 37%); width: 90px; height: 90px; border-radius: 50%;">
+<body style="border: 50px solid rgb(128, 19, 0);">
+	<div id='ball' style="background-color: hsl(251, 100%, 49%); width: 90px; height: 90px; border-radius: 50%"></div>
+	<div  id='P1' style="background-color: hsl(128, 90%, 35%); width: 20px; height:257px; border-radius: 0%;margin-left:0px;"></div>
+	<div  id='P2' style="background-color: hsl(24, 100%, 53%); width: 20px; height:257px; border-radius: 0%;margin-left:1246px;"></div>
 
-	</div>
+	<div hidden id="Sc" >
+		<header style="margin-top: 6px">
+		  <h1 style="color: black;text-align: center;" class="text-center">Scoreboard</h1>
+		</header>
+		<div class="scorecontainer">
+		  <div class="btncontainer">
+			<h2>Player #1</h2>
+			<div class="btn" id="team1">0</div>
+		  </div>
+		  
+		  <div class="btncontainer">
+			<h2>Player #2</h2>
+			<div class="btn" id="team2">0</div>
+			
+		  </div>
+		</div>
+	  </div>
 	<script>
 		function moveBallDown() {
 			intervalHandle = setInterval(function() {
@@ -30,43 +344,293 @@
 		
 			}, tick);
 		}
-
-		function moveBallInXYRatio1to2() {
+        function moveBallInXYRatio1to2() {
 
 			intervalHandle = setInterval(function() {
 
-				ball.style.top = (ball.offsetTop + 2 * stepSize) + 'px';
+				ball.style.top = (ball.offsetTop +(Player1Score+1) * stepSize) + 'px';
 				ball.style.left = (ball.offsetLeft + stepSize) + 'px';
-				if (document.body.clientHeight - ball.offsetTop < (8 + 50 + 80)) {
+				var topval=ball.offsetTop - 2 * stepSize;
+				var leftvaal=ball.offsetLeft + stepSize
+
+				if(ball.offsetLeft==1200 && ball.offsetTop>Player2.offsetTop &&ball.offsetTop<Player2.offsetTop+241 )
+				{
 					clearInterval(intervalHandle);
-					moveBallInXYRatio1toNegative2();
+					Player2Score++;
+					moveBallInXYRatio2to1();
+			    } 
+				if (ball.offsetLeft>1218) {
+
+                   clearInterval(intervalHandle);
+				   Scoring();
+                }
+
+               if (document.body.clientHeight - ball.offsetTop < (8 + 50 + 80)) {
+					clearInterval(intervalHandle);
+				   moveBallInXYRatio1toNegative2();
 				}
+				
 		
 			}, tick);
 		}
-
-		function moveBallInXYRatio1toNegative2() {
+        function moveBallInXYRatio1toNegative2() {
 			intervalHandle = setInterval(function() {
 
-				ball.style.top = (ball.offsetTop - 2 * stepSize) + 'px';
+				ball.style.top = (ball.offsetTop - (Player1Score+1) * stepSize) + 'px';
 				ball.style.left = (ball.offsetLeft + stepSize) + 'px';
+
+				var topval=ball.offsetTop - 2 * stepSize;
+				var leftvaal=ball.offsetLeft + stepSize
+
+				// if(topval<90 && leftvaal>530 && leftvaal<820)
+				// {clearInterval(intervalHandle);
+				// 	moveBallInXYRatio2to1();
+			    // }
+
+               
+				if(ball.offsetLeft==1200 && ball.offsetTop>Player2.offsetTop &&ball.offsetTop<Player2.offsetTop+241 )
+				{clearInterval(intervalHandle);
+					moveBallInXYRatio2toNegative1();
+					Player2Score++;
+			    }
+				if (ball.offsetLeft>1218) {
+
+clearInterval(intervalHandle);
+Scoring();
+}
 				if (document.body.clientWidth - ball.offsetLeft < (8 + 50 + 80)) {
 					clearInterval(intervalHandle);
+					// moveBallInXYRatio2toNegative1();
 				}
 				if (ball.offsetTop < (8 + 50)) {
 					clearInterval(intervalHandle);
+					moveBallInXYRatio1to2()
 				}
 		
 			}, tick);
 		}
+        function moveBallInXYRatio2toNegative1() {
+			intervalHandle = setInterval(function() {
+
+				ball.style.top = (ball.offsetTop - (Player1Score+1) * stepSize) + 'px';
+				ball.style.left = (ball.offsetLeft - stepSize) + 'px';
+				if(ball.offsetLeft==78 && ball.offsetTop>Player1.offsetTop &&ball.offsetTop<Player1.offsetTop+241 )
+				{clearInterval(intervalHandle);
+					Player1Score++;
+					moveBallInXYRatio1to2();
+			    }
+				if (ball.offsetLeft<57) {
+
+                 clearInterval(intervalHandle);
+				 Scoring();
+                }
+
+
+				if (document.body.clientWidth - ball.offsetLeft < (8 + 50 + 80)) {
+
+					clearInterval(intervalHandle);
+					Scoring();
+				}
+			else if(ball.offsetTop < (8 + 50)) {
+					clearInterval(intervalHandle);
+					moveBallInXYRatio2to1();
+				}
+		
+			}, tick);
+		}
+        function moveBallInXYRatio2to1() {
+
+           intervalHandle = setInterval(function() {
+
+	       ball.style.top = (ball.offsetTop + (Player1Score+1) * stepSize) + 'px';
+	       ball.style.left = (ball.offsetLeft - stepSize) + 'px';
+		   if(ball.offsetLeft==78 && ball.offsetTop>Player1.offsetTop &&ball.offsetTop<Player1.offsetTop+241 )
+				{clearInterval(intervalHandle);
+					Player1Score++;
+					moveBallInXYRatio1to2();
+			    }
+		   if (ball.offsetLeft<57) {
+
+                    clearInterval(intervalHandle);
+                     Scoring();
+                 }
+
+		   if(ball.offsetLeft - stepSize==58)
+				{clearInterval(intervalHandle);
+					Scoring();
+					// moveBallInXYRatio1to2();
+				}
+	       if (document.body.clientHeight - ball.offsetTop < (8 + 50 + 80)) {
+		   clearInterval(intervalHandle);
+		   moveBallInXYRatio2toNegative1();
+	    }
+
+}, tick);
+}
+
+		
+		function movePlayer1Down()  
+		{
+			Player1intervalHandle = setInterval(function() {
+              console.log(Player1counter);
+			   if(Player1counter<=1)
+			   {
+				Player1counter++;
+				document.querySelector('#P1').style.top = (document.querySelector('#P1').offsetTop + Player1stepSize) + 'px';
+			   clearInterval(Player1intervalHandle);
+			   }
+			   else{
+				clearInterval(Player1intervalHandle); 
+			  }
+               
+               
+
+         }, Player1tick);
+		}
+		function movePlayer1Up()
+		{
+		
+			Player1intervalHandle = setInterval(function() {
+               
+
+			   console.log(Player1counter);
+			   if(Player1counter>=1)
+			   {
+				Player1counter--;
+				document.querySelector('#P1').style.top = (document.querySelector('#P1').offsetTop - 150) + 'px';
+				clearInterval(Player1intervalHandle);
+			   }
+               else{
+				clearInterval(Player1intervalHandle); 
+			  }
+               
+
+         }, Player1tick);
+		}
+
+		function movePlayer2Down()
+		{
+			Player2intervalHandle = setInterval(function() {
+			
+			  if(Player2counter<=1)
+			  {
+			   Player2counter++;
+			   document.querySelector('#P2').style.top = (document.querySelector('#P2').offsetTop + Player2stepSize) + 'px';
+			  clearInterval(Player2intervalHandle);
+			  }
+			  else{
+				clearInterval(Player2intervalHandle); 
+			  }
+			  
+			  
+
+		}, Player2tick);
+		}
+		function movePlayer2Up()
+		{
+			Player2intervalHandle = setInterval(function() {
+				console.log(Player1counter);
+			   if(Player2counter>=1)
+			   {
+				Player2counter--;
+				document.querySelector('#P2').style.top = (document.querySelector('#P2').offsetTop - Player2stepSize) + 'px';
+				clearInterval(Player2intervalHandle);
+			   }
+			   else{
+				clearInterval(Player2intervalHandle); 
+			  }
+               console.log(Player1counter);
+               
+
+         }, Player2tick);
+		}
+		
+		function Scoring()
+		{
+			document.getElementById('ball').hidden = true;
+			document.getElementById("P1").style.display = "none";
+			document.getElementById("P2").style.display = "none";
+			document.getElementById("Sc").style.display = "block";
+			document.getElementById("team1").innerHTML = Player1Score;
+			document.getElementById("team2").innerHTML = Player2Score;
+
+			if(Player1Score>Player2Score)
+			{
+				document.getElementById("team1").style.backgroundColor = "#60e85c";
+				document.getElementById("team2").style.backgroundColor = "#e85c5c";
+			}
+			else if(Player2Score>Player1Score)
+			{
+				document.getElementById("team1").style.backgroundColor = "#e85c5c";
+				document.getElementById("team2").style.backgroundColor = "#60e85c";
+			}
+			else{
+				document.getElementById("team1").style.backgroundColor = "#60e85c";
+				document.getElementById("team2").style.backgroundColor = "#60e85c";
+			}
+			// alert('Player1 = '+Player1Score+'-----!!!!!-----Player2 = '+Player2Score)
+		}
+		
+       
+
 
 		document.querySelector('div').style.position = 'absolute';
+		document.querySelector('#P1').style.position = 'absolute';
+		document.querySelector('#P2').style.position = 'absolute';
+
 		let counter = 0;
+		let Player1counter = 0;
+		let Player2counter = 0;
+
+
+		let Player1Score = 0;
+		let Player2Score = 0;
+
 		let intervalHandle;
+		let Player1intervalHandle;
+		let Player2intervalHandle;
+
 		const stepSize = 1;
+		const Player1stepSize = 150;
+		const Player2stepSize = 150;
+
+
 		const tick = 0;
+		const Player1tick = 0;
+		const Player2tick = 0;
+
 		const ball = document.querySelector('div');
+        const Player1 = document.querySelector('#P1');
+		const Player2 = document.querySelector('#P2');
 		// moveBallDown();
 		moveBallInXYRatio1to2();
+		window.onkeypress=function(e)
+		{
+			
+			if(e.keyCode==119)
+			{
+				movePlayer1Up();
+			}
+			else if(e.keyCode==115)
+			{
+				movePlayer1Down();
+				
+			}
+			else if(e.keyCode==56)
+			{
+
+				
+				movePlayer2Up();
+				
+			}
+			else if(e.keyCode==50)
+			{
+				
+				movePlayer2Down();
+				
+			}
+			
+		}
 	</script>
+	
 </body>
